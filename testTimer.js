@@ -1,19 +1,26 @@
-var myObject = {
-  countClick: 0,
+const model = {
+  countClick: 0
+};
+
+const controller = {
   handleClick: function() {
-    this.countClick++;
+    model.countClick++;
     view.clearCount();
-    view.displayClick(this.countClick);
+    view.displayClick(model.countClick);
   }
 };
 
-var view = {
+const view = {
   displayClick: function(count) {
-    var displayCount = document.getElementById("displayCount");
-    displayCount.insertAdjacentHTML("beforeend", count);
+    const self = this;
+    const elements = self.elements;
+    elements.displayCount.insertAdjacentHTML("beforeend", count);
   },
   clearCount: function() {
-    var displayCount = document.getElementById("displayCount");
+    const displayCount = document.getElementById("displayCount");
     displayCount.textContent = "";
+  },
+  elements: {
+    displayCount: document.getElementById("displayCount")
   }
 };
