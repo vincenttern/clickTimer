@@ -12,13 +12,13 @@ const controller = {
 
 const view = {
   displayClick: function(count) {
-    const self = this;
-    const elements = self.elements;
-    elements.displayCount.insertAdjacentHTML("beforeend", count);
+    const displayCount = this.elements.displayCount;
+    return displayCount.insertAdjacentHTML("beforeend", count);
   },
   clearCount: function() {
-    const displayCount = document.getElementById("displayCount");
-    displayCount.textContent = "";
+    const displayCount = this.elements.displayCount;
+    const clearDisplayCount = (displayCount.textContent = "");
+    return clearDisplayCount;
   },
   elements: {
     displayCount: document.getElementById("displayCount")
