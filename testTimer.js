@@ -5,7 +5,10 @@ const model = {
 const controller = {
   handleClick: function() {
     model.countClick++;
-    view.clearCount();
+
+    // Ternary operator to check if HTML element id displayCount is true if so it will execute view.clearCount() if false will do nothing.
+    view.elements.displayCount.textContent ? view.clearCount() : null;
+
     view.displayClick(model.countClick);
   }
 };
